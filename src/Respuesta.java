@@ -1,4 +1,6 @@
+
 class Respuesta {
+
     private String respuesta;
     private char letra;
     private boolean correcta;

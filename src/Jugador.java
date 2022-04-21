@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-/**
- *
- * @author jhonm
- */
+//clase jugador creada para definir los datos del jugador
 public class Jugador {
+
     private String nombre;
     private int puntaje;
     private int score;
@@ -41,6 +35,5 @@ public class Jugador {
     public void setScore(int score) {
         this.score = score;
     }
-    
-    
+
 }
