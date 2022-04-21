@@ -1,4 +1,5 @@
 
+
 import java.util.Scanner;
 
 class Pregunta {
@@ -44,6 +45,7 @@ class Pregunta {
             this.setCorrecto(true);
             System.out.println("CORRECTO!!!" + "acabas de sumar" + " " + this.premio + " " + "a tu PREMIO acumulado ");
         } else {
+            
             this.setCorrecto(false);
             System.out.println("Incorrecto, la respuesta correcta era "+" " + String.valueOf(letraCorrecta) +" "+ "MUY BUEN INTENTO!!! Muchas Gracias por participar, su acumulado fue de"+" " + 0);
         }
