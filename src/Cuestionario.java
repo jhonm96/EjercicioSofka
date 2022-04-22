@@ -38,24 +38,7 @@ public class Cuestionario {
 
     }
 
-    //intento de funcion para hacer las validaciones
-    public static void Validaciones(Pregunta p, int suma, int total, String continuar, Scanner sc, int a, String si, String n, int pt, int scr) throws ClassNotFoundException {
-        int dinero = p.getPremio();
-        suma = total + dinero;
-        total = suma;
-        if (p.isCorrecto()) {
-            System.out.println("Desea continuar con la siquiente pregunta? S/N");
-            continuar = sc.next();
-            a++;
-            if (continuar.equalsIgnoreCase(si)) {
-                continue;
-            } else {
-                Registro(n, pt, scr);
-                System.out.println("Muchas Gracias por Jugar" + " " + n + "  " + "Respondiste " + " " + a + " " + "Preguntas correctas" + " " + "Su Premio es de" + " " + total);
-            }
-        }
-    }
-
+   
     //funcion creada para almacenar el registro de cada partida por jugador en la base de datos
     public static void Registro(String a, int b, int c) throws ClassNotFoundException {
         Connect ObjConexion = new Connect();
@@ -424,7 +407,7 @@ public class Cuestionario {
             int dinero=0;
             
             //ciclo de control en el que se recorren las 5 categorias en orden, seleccionando aleatoria mente una pregunta por grupo, tambien se utiliza para validar si el jugador desea o no continuar el juego
-            for (int i = 0; i <= 4; i++) {
+            for (int i = 0; i <= 5; i++) {
                 int preg = num_aleatorios(max, min);
                 switch (i) {
                     //este proceso es repetitivo pero no se convierte en una funcion, por la delicadeza y la cantidad de variables que maneja
@@ -433,7 +416,7 @@ public class Cuestionario {
                         p = preguntaslvl1[preg];//asignacion del primer nivel de preguntas
                         p.preguntar();//Uso del metodo preguntar de la clase pregunta para realizar la pregunta y su respuesta
                         dinero = p.getPremio();//en la variable dinero se guarda el valor de las preguntas de este nivel para despues porder sumarlo al acumulado total en caso de responder correctamente
-                        suma = total + dinero;//en la variable suma se encuentra el valor total de los valores de cada nivel, de modo que cada vez que se avanza en si valor se agrega el valor del nivel nuevo
+                        suma = total + dinero;//en la variable suma se encuentra el valor total de los valores de cada nivel, de modo que cada vez que se avanza en su valor se agrega el valor del nivel nuevo
                         total = suma;//en la variable total es donde se guarda todo el acumulado de los niveles que el jugador consiga superar
 
                         if (p.isCorrecto()) {
@@ -529,6 +512,7 @@ public class Cuestionario {
                         if (p.isCorrecto()) {//validacion de la ultima pregunta o ronda, que da por terminado el juego
                             System.out.println("FELICIDADES!!!!!" + " " + jugador.getNombre() + " " + "ERES EL GANADOR DE " + total + "USD!!! por completar el total de preguntas");
                             a = a + 1;
+                            Seters(jugador, a, total);//Funcion para actualizar los datos en los atributos del jugador
                             Registro(jugador.getNombre(), jugador.getPuntaje(), jugador.getScore());
                         }
                         Seters(jugador, a, total);//Funcion para actualizar los datos en los atributos del jugador
