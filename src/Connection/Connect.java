@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class Connect {
 
     public static Connection connect() throws ClassNotFoundException {
-        String url = "jdbc:sqlite:C:/Users/jhonm/DataGripProjects/historialJuegoSofka/historialJuegoSofka.SQLITE";
+        String url = "jdbc:sqlite:C:/historialJuegoSofka/historialJuegoSofka.SQLITE";//Directorio en el cual se encuentra nuestro archivo de BD para realizar la conexion
         Connection conn = null;
         Class.forName("org.sqlite.JDBC");
 
@@ -24,5 +24,5 @@ public class Connect {
 
 
 
-//C:\Users\jhonm\DataGripProjects\historialJuegoSofka
+//"jdbc:sqlite:C:/historialJuegoSofka/historialJuegoSofka.SQLITE";
 //C:/Users/jhonm/OneDrive/Desktop/SQLiteStudio/RetoSofka.db

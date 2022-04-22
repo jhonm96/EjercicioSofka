@@ -17,7 +17,7 @@ public class Cuestionario {
 
     }//Funcion creada para dar las Gracias y despedir al jugador cuando decide no jugar mas
 
-    public static void Pregunta(String continuar) {
+    public static void Pregunta() {
         System.out.println("Desea continuar con la siquiente pregunta? S/N");
     }//Funcion para realizar la pregunta si desea o no continuar jugando
 
@@ -82,7 +82,7 @@ public class Cuestionario {
         System.out.println("El juego en el que el conocimiento si paga" + "\n");
 
         //Captura del nombre del jugador
-        System.out.println("Cual es tu Nombre Valiente jugador? ingresa tu nombre sin espacios" + "\n");
+        System.out.println("Cual es tu Nombre Valiente jugador? ingresa tu Avatar sin espacios" + "\n");
         String nombre_jugador = sc.next();
         //Validacion para diferenciar un jugador de un admin, con la diferencia de que el admin puede observar todo el historial de jugadores con numero de preguntas respondidas y dinero acumulado
         if (nombre_jugador.equalsIgnoreCase(admin)) {
@@ -422,26 +422,26 @@ public class Cuestionario {
             int a = 0;
             Pregunta p = null;
             int dinero=0;
-
+            
             //ciclo de control en el que se recorren las 5 categorias en orden, seleccionando aleatoria mente una pregunta por grupo, tambien se utiliza para validar si el jugador desea o no continuar el juego
-            for (int i = 0; i <= 5; i++) {
-
+            for (int i = 0; i <= 4; i++) {
                 int preg = num_aleatorios(max, min);
                 switch (i) {
                     //este proceso es repetitivo pero no se convierte en una funcion, por la delicadeza y la cantidad de variables que maneja
                     case 0 -> {
-                        p = preguntaslvl1[preg];
-                        p.preguntar();
-                        dinero = p.getPremio();
-                        suma = total + dinero;
-                        total = suma;
+                        
+                        p = preguntaslvl1[preg];//asignacion del primer nivel de preguntas
+                        p.preguntar();//Uso del metodo preguntar de la clase pregunta para realizar la pregunta y su respuesta
+                        dinero = p.getPremio();//en la variable dinero se guarda el valor de las preguntas de este nivel para despues porder sumarlo al acumulado total en caso de responder correctamente
+                        suma = total + dinero;//en la variable suma se encuentra el valor total de los valores de cada nivel, de modo que cada vez que se avanza en si valor se agrega el valor del nivel nuevo
+                        total = suma;//en la variable total es donde se guarda todo el acumulado de los niveles que el jugador consiga superar
 
                         if (p.isCorrecto()) {
-                            Pregunta(continuar);//Funcion para realizar la pregunta si desea o no continuar jugando
+                            Pregunta();//Funcion para realizar la pregunta si desea o no continuar jugando
                             continuar = sc.next();//captura de la respuesta del usuario de la cual depende si continua o no
                             a = a + 1;
                             Seters(jugador, a, total);//Funcion para Actualizar los datos en los atributos del jugador
-                            if (continuar.equalsIgnoreCase(si)) {
+                            if (continuar.equalsIgnoreCase(si)) {//en este condicional se evalua la respuesta del jugador de querer continuar, salta directamente al siguiente case de lo contrario entra en el else el cual detiene el ciclo por completo
                                 continue;
 
                             } else {
@@ -454,17 +454,18 @@ public class Cuestionario {
 
                     }
                     case 1 -> {
-                        p = preguntaslvl2[preg];
-                        p.preguntar();
-                        dinero = p.getPremio();
-                        suma = total + dinero;
-                        total = suma;
+                        
+                        p = preguntaslvl2[preg];//asignacion del primer nivel de preguntas
+                        p.preguntar();//Uso del metodo preguntar de la clase pregunta para realizar la pregunta y su respuesta
+                        dinero = p.getPremio();//en la variable dinero se guarda el valor de las preguntas de este nivel para despues porder sumarlo al acumulado total en caso de responder correctamente
+                        suma = total + dinero;//en la variable suma se encuentra el valor total de los valores de cada nivel, de modo que cada vez que se avanza en si valor se agrega el valor del nivel nuevo
+                        total = suma;//en la variable total es donde se guarda todo el acumulado de los niveles que el jugador consiga superar
                         if (p.isCorrecto()) {
-                            Pregunta(continuar);//Funcion para realizar la pregunta si desea o no continuar jugando
+                            Pregunta();//Funcion para realizar la pregunta si desea o no continuar jugando
                             continuar = sc.next();//captura de la respuesta del usuario de la cual depende si continua o no
                             a = a + 1;
                             Seters(jugador, a, total);//Funcion para actualizar los datos en los atributos del jugador
-                            if (continuar.equalsIgnoreCase(si)) {
+                            if (continuar.equalsIgnoreCase(si)) {//en este condicional se evalua la respuesta del jugador de querer continuar, salta directamente al siguiente case de lo contrario entra en el else el cual detiene el ciclo por completo
                                 continue;
                             } else {
                                 Registro(jugador.getNombre(), jugador.getPuntaje(), jugador.getScore());
@@ -475,17 +476,40 @@ public class Cuestionario {
                         break;
                     }
                     case 2 -> {
-                        p = preguntaslvl3[preg];
-                        p.preguntar();
-                        dinero = p.getPremio();
-                        suma = total + dinero;
-                        total = suma;
+                        
+                        p = preguntaslvl3[preg];//asignacion del primer nivel de preguntas
+                        p.preguntar();//Uso del metodo preguntar de la clase pregunta para realizar la pregunta y su respuesta
+                        dinero = p.getPremio();//en la variable dinero se guarda el valor de las preguntas de este nivel para despues porder sumarlo al acumulado total en caso de responder correctamente
+                        suma = total + dinero;//en la variable suma se encuentra el valor total de los valores de cada nivel, de modo que cada vez que se avanza en si valor se agrega el valor del nivel nuevo
+                        total = suma;//en la variable total es donde se guarda todo el acumulado de los niveles que el jugador consiga superar
                         if (p.isCorrecto()) {
-                            Pregunta(continuar);//Funcion para realizar la pregunta si desea o no continuar jugando
+                            Pregunta();//Funcion para realizar la pregunta si desea o no continuar jugando
                             continuar = sc.next();//captura de la respuesta del usuario de la cual depende si continua o no
                             a = a + 1;
                             Seters(jugador, a, total);//Funcion para actualizar los datos en los atributos del jugador
-                            if (continuar.equalsIgnoreCase(si)) {
+                            if (continuar.equalsIgnoreCase(si)) {//en este condicional se evalua la respuesta del jugador de querer continuar, salta directamente al siguiente case de lo contrario entra en el else el cual detiene el ciclo por completo
+                                continue;
+                            } else {
+                                Registro(jugador.getNombre(), jugador.getPuntaje(), jugador.getScore());
+                                Despedida(jugador, a, total);//Funcion creada para dar las Gracias y despedir al jugador cuando decide no jugar mas
+                            }
+                        }
+                        Seters(jugador, a, total);//Funcion para actualizar los datos en los atributos del jugador
+                        break;
+                    }
+                    case 3 -> {
+                        
+                       p = preguntaslvl4[preg];//asignacion del primer nivel de preguntas
+                        p.preguntar();//Uso del metodo preguntar de la clase pregunta para realizar la pregunta y su respuesta
+                        dinero = p.getPremio();//en la variable dinero se guarda el valor de las preguntas de este nivel para despues porder sumarlo al acumulado total en caso de responder correctamente
+                        suma = total + dinero;//en la variable suma se encuentra el valor total de los valores de cada nivel, de modo que cada vez que se avanza en si valor se agrega el valor del nivel nuevo
+                        total = suma;//en la variable total es donde se guarda todo el acumulado de los niveles que el jugador consiga superar
+                        if (p.isCorrecto()) {
+                            Pregunta();//Funcion para realizar la pregunta si desea o no continuar jugando
+                            continuar = sc.next();//captura de la respuesta del usuario de la cual depende si continua o no
+                            a = a + 1;
+                            Seters(jugador, a, total);//Funcion para actualizar los datos en los atributos del jugador
+                            if (continuar.equalsIgnoreCase(si)) {//en este condicional se evalua la respuesta del jugador de querer continuar, salta directamente al siguiente case de lo contrario entra en el else el cual detiene el ciclo por completo
                                 continue;
                             } else {
                                 Registro(jugador.getNombre(), jugador.getPuntaje(), jugador.getScore());
@@ -496,33 +520,12 @@ public class Cuestionario {
                         break;
                     }
                     case 4 -> {
-                        p = preguntaslvl4[preg];
-                        p.preguntar();
-
-                        dinero = p.getPremio();
-                        suma = total + dinero;
-                        total = suma;
-                        if (p.isCorrecto()) {
-                            Pregunta(continuar);//Funcion para realizar la pregunta si desea o no continuar jugando
-                            continuar = sc.next();//captura de la respuesta del usuario de la cual depende si continua o no
-                            a = a + 1;
-                            Seters(jugador, a, total);//Funcion para actualizar los datos en los atributos del jugador
-                            if (continuar.equalsIgnoreCase(si)) {
-                                continue;
-                            } else {
-                                Registro(jugador.getNombre(), jugador.getPuntaje(), jugador.getScore());
-                                Despedida(jugador, a, total);//Funcion creada para dar las Gracias y despedir al jugador cuando decide no jugar mas
-                            }
-                        }
-                        Seters(jugador, a, total);//Funcion para actualizar los datos en los atributos del jugador
-                        break;
-                    }
-                    case 5 -> {
-                        p = preguntaslvl5[preg];
-                        p.preguntar();
-                        dinero = p.getPremio();
-                        suma = total + dinero;
-                        total = suma;
+                        
+                       p = preguntaslvl5[preg];//asignacion del primer nivel de preguntas
+                        p.preguntar();//Uso del metodo preguntar de la clase pregunta para realizar la pregunta y su respuesta
+                        dinero = p.getPremio();//en la variable dinero se guarda el valor de las preguntas de este nivel para despues porder sumarlo al acumulado total en caso de responder correctamente
+                        suma = total + dinero;//en la variable suma se encuentra el valor total de los valores de cada nivel, de modo que cada vez que se avanza en si valor se agrega el valor del nivel nuevo
+                        total = suma;//en la variable total es donde se guarda todo el acumulado de los niveles que el jugador consiga superar
                         if (p.isCorrecto()) {//validacion de la ultima pregunta o ronda, que da por terminado el juego
                             System.out.println("FELICIDADES!!!!!" + " " + jugador.getNombre() + " " + "ERES EL GANADOR DE " + total + "USD!!! por completar el total de preguntas");
                             a = a + 1;
