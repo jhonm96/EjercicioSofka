@@ -53,7 +53,7 @@ Pasos a Seguir para su correcto funcionamiento
 5. SOPORTE: en caso de necesitar cualquier clase de soporte o resolver dudas enviar un e-mail a "jhonm9696@gmail.com" se le respondera lo mas pronto posible
 
 
-                                                                    EXITOS!!!!
+                                                       EXITOS!!!!
 
 
 
